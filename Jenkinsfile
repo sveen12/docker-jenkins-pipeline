@@ -16,7 +16,7 @@ node {
   stage ('Run Application') {
     try {
       // Start database container here
-      // sh 'docker run -d --name db -p 8091-8093:8091-8093 -p 11210:11210 sveen12/oreilly-couchbase:latest'
+      sh 'docker run -d --name db -p 8091-8093:8091-8093 -p 11210:11210 sveen12/oreilly-couchbase:latest'
 
       // Run application using Docker image
       sh "DB=`docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' db`"
